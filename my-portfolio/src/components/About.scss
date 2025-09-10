@@ -1,0 +1,210 @@
+// About.scss
+@use '../styles/variables' as *;
+
+.about-section {
+  padding: 4rem 2rem;
+  background: var(--bg-color);
+  color: var(--text-color);
+
+  .about-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 700;
+    color: var(--text-color);
+
+    .highlight-text {
+      color: var(--primary);
+      position: relative;
+      display: inline-block;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: var(--primary);
+        transition: width 0.3s ease;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+
+  .intro-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    text-align: center;
+    color: var(--text-secondary);
+  }
+
+  .skills-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .skill-item {
+    position: relative;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: default;
+    transition: all 0.3s ease;
+    padding: 0.5rem 0;
+
+    .skill-underline {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    &:hover {
+      color: var(--primary);
+
+      .skill-underline {
+        width: 100%;
+      }
+    }
+  }
+
+  .info-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .info-box {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--primary);
+    }
+
+    .box-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+
+      h3 {
+        font-size: 1.4rem;
+        color: var(--primary);
+        margin: 0;
+      }
+
+      .box-icon {
+        font-size: 1.8rem;
+        opacity: 0.8;
+        color: var(--primary);
+      }
+    }
+
+    .box-content {
+      h4 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        color: var(--text-color);
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: var(--text-secondary);
+        margin-bottom: 0.5rem;
+      }
+
+      ul {
+        list-style: none;
+        padding-left: 0;
+        
+        li {
+          position: relative;
+          padding-left: 1.5rem;
+          margin-bottom: 0.8rem;
+          font-size: 1rem;
+          color: var(--text-secondary);
+
+          &::before {
+            content: '▹';
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+          }
+        }
+      }
+    }
+
+    &.education-box {
+      &::before {
+        background: linear-gradient(90deg, var(--primary) 0%, #00d4ff 100%);
+      }
+    }
+
+    &.focus-box {
+      &::before {
+        background: linear-gradient(90deg, var(--primary) 0%, #a162e8 100%);
+      }
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 3rem 1.5rem;
+
+    .skills-row {
+      gap: 1rem;
+      justify-content: space-around;
+    }
+
+    .skill-item {
+      font-size: 1rem;
+    }
+
+    .info-section {
+      grid-template-columns: 1fr;
+    }
+  }
+}

@@ -1,0 +1,203 @@
+@use '../styles/variables' as *;
+
+.projects {
+  padding: $section-padding;
+  background: $dark;
+  color: $light;
+  text-align: center;
+
+  .projects-header {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    
+    .featured-label {
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba($light, 0.7);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+    
+    .main-title {
+      font-size: 2.8rem;
+      line-height: 1.2;
+      color: $light;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+    
+    .description {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: rgba($light, 0.8);
+      margin-bottom: 0;
+    }
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .project-card {
+    background: rgba($primary, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid rgba($primary, 0.1);
+    text-align: left;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba($primary, 0.15);
+      border-color: rgba($primary, 0.3);
+    }
+  }
+
+  .project-image {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba($dark, 0.8), transparent);
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-status {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: $primary;
+      color: $dark;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      z-index: 2;
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.05);
+      }
+      .overlay {
+        opacity: 0.4;
+      }
+    }
+  }
+
+  .project-content {
+    padding: 2rem;
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: $light;
+    }
+
+    .project-role {
+      color: $primary;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+
+    p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: rgba($light, 0.8);
+      margin-bottom: 1.5rem;
+      flex: 1;
+    }
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+
+    span {
+      background: rgba($primary, 0.2);
+      color: $primary;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+  }
+
+  .github-link {
+    display: inline-block;
+    color: $primary;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    margin-top: auto;
+    align-self: flex-start;
+
+    &:hover {
+      color: var(--primary-light);
+      transform: translateX(5px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: $section-padding 1.5rem;
+
+    .projects-header {
+      margin-bottom: 3rem;
+      text-align: center;
+      
+      .featured-label {
+        font-size: 0.8rem;
+      }
+      
+      .main-title {
+        font-size: 2rem;
+      }
+      
+      .description {
+        font-size: 1.1rem;
+      }
+    }
+
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .project-image {
+      height: 200px;
+    }
+
+    .project-content {
+      padding: 1.5rem;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+.theme-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .theme-icon {
+    color: var(--text-color);
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    background: rgba(var(--primary), 0.1);
+    
+    .theme-icon {
+      transform: scale(1.1);
+    }
+  }
+
+  &:focus {
+    outline: 2px solid rgba(var(--primary), 0.5);
+    outline-offset: 2px;
+  }
+}

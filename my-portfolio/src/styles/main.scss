@@ -1,0 +1,32 @@
+@use './variables' as *;
+
+// Base styles
+body {
+  margin: 0;
+  font-family: $font-main;
+  color: $light;
+  background: $dark;
+  line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+// Layout
+html, body, #root {
+  min-height: 100vh;
+}
+
+section {
+  scroll-margin-top: 80px; // matches header height
+  padding: $section-padding 0;
+}
+// Links
+a {
+  color: $primary;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: var(--primary-light);
+  }
+}
+

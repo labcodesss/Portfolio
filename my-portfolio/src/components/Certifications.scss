@@ -1,0 +1,242 @@
+@use '../styles/variables' as *;
+
+.certifications-section {
+  padding: $section-padding 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  
+  .section-title {
+    text-align: center;
+    margin-bottom: $spacing-xl;
+    color: var(--text-color);
+    font-size: 2.5rem;
+    position: relative;
+    
+    &::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: $primary;
+      margin: $spacing-sm auto 0;
+      border-radius: 2px;
+    }
+  }
+  
+  .certifications-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+  }
+
+  .certifications-scroll {
+    display: flex;
+    gap: $spacing-lg;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: $spacing-md 0;
+    scroll-padding: 0 $spacing-md;
+    
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .achievement-card {
+    flex: 0 0 350px;
+    background: var(--card-bg);
+    border-radius: $radius-lg;
+    padding: $spacing-lg;
+    transition: all $transition-normal;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, $primary, $primary-light);
+      opacity: 0.7;
+    }
+    
+    &:hover {
+      border-color: $primary;
+      box-shadow: var(--shadow-md);
+      transform: translateY(-5px);
+      
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  .achievement-header {
+    margin-bottom: $spacing-md;
+
+    h3 {
+      color: var(--text-color);
+      font-size: 1.2rem;
+      margin: 0 0 $spacing-sm 0;
+      line-height: 1.4;
+    }
+
+    .achievement-type {
+      background: $primary;
+      color: $dark;
+      padding: $spacing-sm $spacing-md;
+      border-radius: $radius-sm;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      display: inline-block;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+  }
+
+  .achievement-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    
+    p {
+      margin: $spacing-sm 0;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .achievement-meta {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: $spacing-md;
+      font-weight: 500;
+    }
+    
+    .achievement-description {
+      flex-grow: 1;
+    }
+  }
+
+  .achievement-link {
+    display: inline-block;
+    margin-top: auto;
+    padding: $spacing-sm $spacing-md;
+    background: $primary;
+    color: $dark;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: $radius-sm;
+    transition: all $transition-fast;
+    text-align: center;
+    border: 2px solid transparent;
+    
+    &:hover {
+      background: transparent;
+      color: $primary;
+      border-color: $primary;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+  }
+
+  .scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--card-bg);
+    border: 2px solid $primary;
+    color: $primary;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    transition: all $transition-fast;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    
+    &:hover {
+      background: $primary;
+      color: $dark;
+      transform: translateY(-50%) scale(1.1);
+    }
+    
+    &.scroll-left {
+      left: -20px;
+    }
+    
+    &.scroll-right {
+      right: -20px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .certifications-section {
+    padding: $section-padding 1rem;
+    
+    .section-title {
+      font-size: 2rem;
+    }
+    
+    .certifications-container {
+      gap: $spacing-sm;
+    }
+    
+    .achievement-card {
+      flex: 0 0 300px;
+      min-height: 250px;
+    }
+    
+    .scroll-btn {
+      width: 35px;
+      height: 35px;
+      font-size: 1rem;
+      
+      &.scroll-left {
+        left: -15px;
+      }
+      
+      &.scroll-right {
+        right: -15px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .certifications-section {
+    .achievement-card {
+      flex: 0 0 280px;
+      padding: $spacing-md;
+      min-height: 230px;
+    }
+    
+    .scroll-btn {
+      display: none;
+    }
+    
+    .achievement-header {
+      h3 {
+        font-size: 1.1rem;
+      }
+    }
+  }
+}

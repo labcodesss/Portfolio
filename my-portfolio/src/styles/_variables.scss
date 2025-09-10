@@ -1,0 +1,95 @@
+// Import the color module
+@use "sass:color";
+
+// Static color values
+$static-primary: #646cff;
+$static-dark: #1a1a1a;
+$static-light: #ffffff;
+
+// Derived colors
+$static-primary-light: color.adjust($static-primary, $lightness: 15%);
+$static-primary-dark: color.adjust($static-primary, $lightness: -15%);
+
+// Theme definitions
+:root {
+  // Primary colors
+  --primary: #{$static-primary};
+  --primary-light: #{$static-primary-light};
+  --primary-dark: #{$static-primary-dark};
+  
+  // Background colors
+  --bg-color: #{$static-light};
+  --secondary-bg: #f8f8f8;
+  --card-bg: #{$static-light};
+  
+  // Text colors
+  --text-color: #{$static-dark};
+  --text-secondary: #{color.adjust($static-dark, $lightness: 40%)};
+  
+  // UI colors
+  --border-color: #eaeaea;
+  --icon-color: #{$static-dark};
+  
+  // Shadows
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+  // Primary colors (same as light)
+  --primary: #{$static-primary};
+  --primary-light: #{$static-primary-light};
+  --primary-dark: #{$static-primary-dark};
+  
+  // Background colors
+  --bg-color: #{$static-dark};
+  --secondary-bg: #{color.adjust($static-dark, $lightness: 5%)};
+  --card-bg: #{color.adjust($static-dark, $lightness: 10%)};
+  
+  // Text colors
+  --text-color: #{$static-light};
+  --text-secondary: #{color.adjust($static-light, $lightness: -30%)};
+  
+  // UI colors
+  --border-color: #{color.adjust($static-dark, $lightness: 20%)};
+  --icon-color: #{$static-light};
+  
+  // Shadows
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+// SCSS variables mapping to CSS variables
+$primary: var(--primary);
+$primary-light: var(--primary-light);
+$primary-dark: var(--primary-dark);
+$light: var(--text-color);
+$dark: var(--bg-color);
+$secondary-bg: var(--secondary-bg);
+$border: var(--border-color);
+$card-bg: var(--card-bg);
+$text-secondary: var(--text-secondary);
+$icon-color: var(--icon-color);
+
+// Font variables
+$font-main: 'Inter', sans-serif;
+$font-mono: 'Fira Code', monospace;
+
+// Spacing
+$section-padding: 4rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+
+// Border radius
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 12px;
+
+// Transitions
+$transition-fast: 0.15s ease;
+$transition-normal: 0.3s ease;
+$transition-slow: 0.5s ease;
